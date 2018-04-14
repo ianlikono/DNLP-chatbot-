@@ -1,3 +1,12 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Sat Feb 24 19:27:41 2018
+
+@author: likono
+"""
+
+
 # Importing the libraries
 import numpy as np
 import tensorflow as tf
@@ -358,7 +367,7 @@ def split_into_batches(questions, answers, batch_size):
         padded_answers_in_batch = np.array(apply_padding(answers_in_batch, answerswords2int))
         yield padded_questions_in_batch, padded_answers_in_batch
  
-# Splitting the questions and answers into training and validation sets
+# Split the questions and answers into training and validation sets
 training_validation_split = int(len(sorted_clean_questions) * 0.15)
 training_questions = sorted_clean_questions[training_validation_split:]
 training_answers = sorted_clean_answers[training_validation_split:]
@@ -432,7 +441,7 @@ print("Game Over")
  
  
  
-# Loading the weights and Running the session
+# Run session after loading wights
 checkpoint = "./chatbot_weights.ckpt"
 session = tf.InteractiveSession()
 session.run(tf.global_variables_initializer())
